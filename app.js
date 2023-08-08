@@ -9,7 +9,13 @@ const { Document } = require("langchain/document")
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const port = process.env.PORT || 3000;
+
+app.use(cors({
+  origin: '*'
+}));
+
 
 
 const dbLoader = new NotionAPILoader({
@@ -27,7 +33,7 @@ const pageLoader = new NotionAPILoader({
     clientOptions: {
       auth: process.env.NOTION_KEY,//DEV NOTION KEY "secret_rDDgfCZA8nz6dC8gaPOhRE9V5fMzAKfWzzPWlwn9xlp",
     },
-    id: "4001b7d0-e4f9-488c-a2c6-acc30c119219",
+    id: "ed3a2d6839e246cb8d3c4b1e28b135d2",
     type: "page",
   });
 
